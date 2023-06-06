@@ -254,6 +254,7 @@ class AttendanceClockInHeaderView: UIView {
             
             let lineV = UIView()
             lineV.backgroundColor = YUXICOLOR(h: 0xE4E4E4, alpha: 1)
+            lineV.tag = 1000 + index
             topBgView.addSubview(lineV)
             lineV.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
@@ -267,7 +268,7 @@ class AttendanceClockInHeaderView: UIView {
             }else {
                 clockInLab.text = "下班 \(model.date)"
             }
-            
+            clockInLab.tag = 2000 + index
             clockInLab.textColor = YUXICOLOR(h: 0x000000, alpha: 1)
             clockInLab.font = UIFont.fontWith(size: 10)
             topBgView.addSubview(clockInLab)
@@ -280,6 +281,7 @@ class AttendanceClockInHeaderView: UIView {
                 make.top.equalToSuperview().offset(WIDTH_SCALE(12))
             }
             let stateLab = UILabel()
+            stateLab.tag = 3000 + index
             if model.status == 0 {
                 stateLab.text = "未打卡"
                 stateLab.textColor = YUXICOLOR(h: 0xF5643F, alpha: 1)

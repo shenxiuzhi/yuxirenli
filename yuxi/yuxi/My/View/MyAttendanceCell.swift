@@ -81,9 +81,9 @@ class MyAttendanceCell: UITableViewCell {
             
             let stateLab = UILabel()
             if item.status == 0{
-                stateLab.text = "未打卡"
-                stateLab.textColor = YUXICOLOR(h: 0x999999, alpha: 1)
-                stateLab.layer.borderColor = YUXICOLOR(h: 0x999999, alpha: 1).cgColor
+                stateLab.text = "缺卡"
+                stateLab.textColor = YUXICOLOR(h: 0xF5643F, alpha: 1)
+                stateLab.layer.borderColor = YUXICOLOR(h: 0xF5643F, alpha: 1).cgColor
             }else if item.status == 1 {
                 stateLab.text = "正常"
                 stateLab.textColor = YUXICOLOR(h: 0x3FA9F5, alpha: 1)
@@ -114,13 +114,13 @@ class MyAttendanceCell: UITableViewCell {
             let workLab = UILabel()
             if item.type == 1 {
                 if item.status == 0{
-                    workLab.text = "未打卡"
+                    workLab.text = "上班:未打卡"
                 }else {
                     workLab.text = "上班:\(item.date)"
                 }
             }else {
                 if item.status == 0{
-                    workLab.text = "未打卡"
+                    workLab.text = "下班:未打卡"
                 }else {
                     workLab.text = "下班:\(item.date)"
                 }

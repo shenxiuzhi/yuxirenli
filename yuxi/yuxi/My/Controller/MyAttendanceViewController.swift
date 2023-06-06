@@ -187,7 +187,7 @@ class MyAttendanceViewController: YUXIBaseController, UITableViewDelegate, UITab
                     weakself.cci = content["cci"].intValue//迟到次数
                     let list = content["ci"].arrayValue
                     weakself.checkedTotalStr = "\(time)"
-                    weakself.checkedInStr = "\(list.count)"
+                    weakself.checkedInStr = "\(time-qci)"
                     weakself.dataArr.removeAll()
                     if code == 200 {
                         for js in list {
