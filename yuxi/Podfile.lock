@@ -1,0 +1,137 @@
+PODS:
+  - Alamofire (5.6.4)
+  - AMap2DMap (5.6.1):
+    - AMapFoundation (~> 1.4)
+  - AMapFoundation (1.8.2)
+  - AMapLocation (2.10.0):
+    - AMapFoundation (>= 1.8.0)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
+  - ChartsRealm (3.4.0):
+    - Charts (~> 3.4.0)
+    - RealmSwift (~> 3.18.0)
+  - CryptoSwift (1.7.1)
+  - CVCalendar (1.7.0)
+  - JCore (4.2.0)
+  - JPush (4.8.1):
+    - JCore (>= 2.0.0)
+  - libwebp (1.2.4):
+    - libwebp/demux (= 1.2.4)
+    - libwebp/mux (= 1.2.4)
+    - libwebp/webp (= 1.2.4)
+  - libwebp/demux (1.2.4):
+    - libwebp/webp
+  - libwebp/mux (1.2.4):
+    - libwebp/demux
+  - libwebp/webp (1.2.4)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - MLEmojiLabel (1.0.2):
+    - TTTAttributedLabel (~> 1.13.4)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
+  - SDWebImage (5.15.6):
+    - SDWebImage/Core (= 5.15.6)
+  - SDWebImage/Core (5.15.6)
+  - SDWebImageWebPCoder (0.11.0):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.15)
+  - SnapKit (5.6.0)
+  - SwiftyJSON (5.0.1)
+  - Toast-Swift (5.0.1)
+  - TTTAttributedLabel (1.13.4)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYImage/WebP (1.0.4):
+    - YYImage/Core
+  - YYText-swift (1.0.6)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - Alamofire
+  - AMap2DMap
+  - AMapLocation
+  - Charts
+  - ChartsRealm
+  - CryptoSwift
+  - CVCalendar (~> 1.7.0)
+  - JCore
+  - JPush (~> 4.8.0)
+  - MagicalRecord
+  - MLEmojiLabel
+  - SDWebImage
+  - SDWebImageWebPCoder
+  - SnapKit
+  - SwiftyJSON
+  - Toast-Swift
+  - YYImage/WebP
+  - YYText-swift (~> 1.0.6)
+  - YYWebImage
+
+SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - Alamofire
+    - AMap2DMap
+    - AMapFoundation
+    - AMapLocation
+    - Charts
+    - ChartsRealm
+    - CryptoSwift
+    - CVCalendar
+    - JCore
+    - JPush
+    - libwebp
+    - MagicalRecord
+    - MLEmojiLabel
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SDWebImageWebPCoder
+    - SnapKit
+    - SwiftyJSON
+    - Toast-Swift
+    - TTTAttributedLabel
+    - YYCache
+    - YYImage
+    - YYText-swift
+    - YYWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  AMap2DMap: cac76bc057de18a1641f34df6b50bf5bc6b23571
+  AMapFoundation: 9885c48fc3a78fdfb84a0299a2293e56ea3c9fec
+  AMapLocation: 5248aec2455ebb5d104b367813c946430a2ee033
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  ChartsRealm: 2ae8bf478211a94b3b6dd20738db0b9b132eb66b
+  CryptoSwift: d3d18dc357932f7e6d580689e065cf1f176007c1
+  CVCalendar: 1174c1b43c1a258970e14c1e8b19ef4106c5900b
+  JCore: ea09330f4b5b5031f37c40cf6facc669ffc172be
+  JPush: 2caabdb6d62d009bc07a9bd115d03c7c42512b5e
+  libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  MLEmojiLabel: 36d73c19f9975cbf9def24e5bc135263b0337fd8
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
+  SDWebImage: d47d81bea8a77187896b620dc79c3c528e8906b9
+  SDWebImageWebPCoder: 295a6573c512f54ad2dd58098e64e17dcf008499
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYText-swift: d266723a8d3d28d0b1436c774ca441038b38bcf9
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+
+PODFILE CHECKSUM: 9cee9e62afd38c283ab06a8a440fdcda7cb60192
+
+COCOAPODS: 1.12.0

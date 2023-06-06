@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Attendance_Clock_In_Attendance.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Attendance_Clock_In_Attendance@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Attendance_Clock_In_Attendance@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

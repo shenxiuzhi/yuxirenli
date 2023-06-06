@@ -1,0 +1,83 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+#source 'https://github.com/CocoaPods/Specs.git'       #为SnapKit指定来源
+source 'https://github.com/volcengine/volcengine-specs.git'
+platform:ios, '13.0'
+# 让第三方库不产生armv7文件
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+        end
+    end
+end
+
+use_frameworks!
+
+target ‘yuxi’ do
+  pod 'Alamofire'            #网络请求
+  pod 'SDWebImage'      #图片加载
+  pod 'SDWebImageWebPCoder'               #SDWebImage支持.WebP格式图片
+  pod 'MagicalRecord'     #CoreData  setParentContext:加上非空判断;
+#  pod 'NIMSDK_LITE'         #网易云信
+  pod 'SnapKit'              #自动布局
+  pod 'SwiftyJSON'           #JSON解析
+  pod 'MLEmojiLabel'         #富文本  commonLinkColor修改为0x75e2fd
+  pod 'Toast-Swift'         #toast提示
+  pod 'CryptoSwift'          #Md5加密
+#  pod 'QCloudCOSV4'          #腾讯对象存储
+#  pod 'UMengAnalytics'        #友盟统计
+ # pod 'mp3lame-for-ios'    #音频格式转换
+#  pod 'lottie-ios'    #全屏动画
+#  pod 'SSZipArchive'    #zip解压
+#  pod 'VIMediaCache'    #使用AVPlayerr播放媒体时缓存媒体文件
+#  pod 'BMKLocationKit'   #百度定位
+#  pod 'SVGAPlayer'   #动画播放器
+#  pod 'OCBarrage'    #弹幕
+#  pod 'QQ_MTA'  #腾讯统计（基础统计功能）
+#  pod 'CL_ShanYanSDK'
+#  pod 'LinkedME_LinkPage'  #深度链接（邀请新用户注册返利)
+#  pod 'IQKeyboardManagerSwift'
+#  pod 'AgoraAudio_iOS'
+#  pod 'Bugly' #bugly
+  # 客服sdk
+#  pod 'QMUIComponent'
+#  pod 'QMLineSDK'
+  #pod 'LLCycleScrollView' #轮播图
+  pod 'YYText-swift', '~> 1.0.6' #文字编辑
+  pod 'YYWebImage'
+  pod 'YYImage/WebP'
+  
+  pod 'Charts' # 饼状图
+  pod 'ChartsRealm'
+
+  pod 'CVCalendar', '~> 1.7.0' #日历
+  
+  pod 'JPush' , '~> 4.8.0'#极光推送
+  pod 'JCore'
+
+#  pod 'LookinServer', :configurations => ['Debug']
+#  pod 'QGVAPlayer', '~> 1.0.19'
+#  pod 'JXPagingView/Paging'
+#  pod 'JXSegmentedView'
+#  pod 'JXCategoryView'
+#  pod 'iCarousel'
+  
+#  pod 'BarrageRenderer'
+  
+#  pod 'AlipaySDK-iOS'
+  
+  #  pod 'GPUImage3'
+#pod 'RangersAppLog' ,:subspecs => [
+#      'Core',
+#      'Log',
+##      'Picker', #无需圈选功能可以移除，参考4.2节
+#      'Unique',  # 若需要采集IDFA，则引入Unique子库
+#      'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
+#    ]
+
+
+#pod 'AMap3DMap' #3D地图SDK #
+pod 'AMap2DMap' #2D地图SDK (2D和3D不能同时使用)
+#pod 'AMapSearch' #搜索功能 end
+pod 'AMapLocation' #定位SDK
+end
