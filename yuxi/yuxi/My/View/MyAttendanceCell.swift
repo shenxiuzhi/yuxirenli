@@ -81,7 +81,7 @@ class MyAttendanceCell: UITableViewCell {
             
             let stateLab = UILabel()
             if item.status == 0{
-                stateLab.text = "缺卡"
+                stateLab.text = "未打卡"
                 stateLab.textColor = YUXICOLOR(h: 0xF5643F, alpha: 1)
                 stateLab.layer.borderColor = YUXICOLOR(h: 0xF5643F, alpha: 1).cgColor
             }else if item.status == 1 {

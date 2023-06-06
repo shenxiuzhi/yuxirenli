@@ -42,7 +42,7 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     // 0:可以打卡 , 1:不在范围内, 2:不在时间内, 3:正在定位
     var isInScope:Int = -1 {
         didSet {
-            headView.tipLab.text = isInScope == 3 ? "定位中" :(isInScope == 2 ? "不再有效打卡时段内" : (isInScope == 0 ? "已进入考勤范围，请点击按钮拍照打卡" : "不再有效打卡地点内"))
+            headView.tipLab.text = isInScope == 3 ? "定位中" :(isInScope == 2 ? "不在有效打卡时段内" : (isInScope == 0 ? "已进入考勤范围，请点击按钮拍照打卡" : "不在有效打卡地点内"))
             headView.tipLab.textColor = YUXICOLOR(h: isInScope == 0 ? 0x3FA9F5 : 0x666666, alpha: 1)
             headView.tipImage.image = UIImage(named: isInScope == 0 ? "Attendance_Clock_In_Locate" : "Attendance_Out_Of_Range")
         }
@@ -332,10 +332,10 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     
     @objc func clockInAction() {
         if isInScope == 1 {
-            self.view.makeToast("不再有效打卡地点内")
+            self.view.makeToast("不在有效打卡地点内")
             return
         }else if isInScope == 2 {
-            self.view.makeToast("不再有效打卡时段内")
+            self.view.makeToast("不在有效打卡时段内")
             return
         }else if isInScope == 3 {
             self.view.makeToast("定位中")
