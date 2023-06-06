@@ -1319,7 +1319,7 @@
 					"$(SRCROOT)/Pods/JCore",
 					"$(PROJECT_DIR)/yuxi/SDK/Libs",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.001;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.yuxirenli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1368,7 +1368,7 @@
 					"$(SRCROOT)/Pods/JCore",
 					"$(PROJECT_DIR)/yuxi/SDK/Libs",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.001;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.yuxirenli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
