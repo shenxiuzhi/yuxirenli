@@ -21,6 +21,7 @@ class SRequestObject: NSObject {
     
     //退出登录接口
     func exitLoginInterface() {
+        UIViewController.getCurrentViewCtrl().view.makeToastActivity(.center)
         SURLRequest.sharedInstance.requestPostWithUrl(Url_Login_Out, param: nil) {[weak self] data in
             if let weakself = self {
                 let json = JSON(data)
@@ -40,10 +41,11 @@ class SRequestObject: NSObject {
                 }else{
 
                 }
-                
+                UIViewController.getCurrentViewCtrl().view.hideToastActivity()
             }
         } err: { [weak self] error in
             Dprint("Login_loginerror====== \(error)")
+            UIViewController.getCurrentViewCtrl().view.hideToastActivity()
         }
     }
     

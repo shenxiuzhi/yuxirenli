@@ -113,20 +113,8 @@
 		04BF17432A28C43D003E8F8F /* AddressBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF17422A28C43D003E8F8F /* AddressBookModel.swift */; };
 		04BF17472A28D7AE003E8F8F /* FishingGameWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF17462A28D7AE003E8F8F /* FishingGameWebVC.swift */; };
 		04BF174F2A2AF699003E8F8F /* PermissionClosedTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF174E2A2AF699003E8F8F /* PermissionClosedTipView.swift */; };
-		04BF17512A2B006A003E8F8F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17502A2B006A003E8F8F /* Security.framework */; };
 		04BF17532A2B007E003E8F8F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17522A2B007E003E8F8F /* libz.tbd */; };
 		04BF17552A2B423E003E8F8F /* Pods_yuxi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17542A2B423E003E8F8F /* Pods_yuxi.framework */; };
-		04BF17572A2B457C003E8F8F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17562A2B457C003E8F8F /* CFNetwork.framework */; };
-		04BF17592A2B4585003E8F8F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17582A2B4585003E8F8F /* CoreFoundation.framework */; };
-		04BF175B2A2B4590003E8F8F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF175A2A2B4590003E8F8F /* CoreTelephony.framework */; };
-		04BF175D2A2B4597003E8F8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF175C2A2B4597003E8F8F /* SystemConfiguration.framework */; };
-		04BF175F2A2B459F003E8F8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF175E2A2B459F003E8F8F /* CoreGraphics.framework */; };
-		04BF17612A2B45AA003E8F8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17602A2B45AA003E8F8F /* Foundation.framework */; };
-		04BF17632A2B45B2003E8F8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17622A2B45B2003E8F8F /* UIKit.framework */; };
-		04BF17652A2B45DB003E8F8F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17642A2B45DB003E8F8F /* UserNotifications.framework */; };
-		04BF17672A2B45EB003E8F8F /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17662A2B45EB003E8F8F /* libresolv.tbd */; };
-		04BF17692A2B45F4003E8F8F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF17682A2B45F4003E8F8F /* WebKit.framework */; };
-		04BF176B2A2B4606003E8F8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF176A2A2B4606003E8F8F /* StoreKit.framework */; };
 		04DBED252A24949B00DC92AD /* MyMonthlyReportCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED242A24949B00DC92AD /* MyMonthlyReportCenterModel.swift */; };
 		04DBED272A249F5300DC92AD /* SalaryDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED262A249F5300DC92AD /* SalaryDetailsHeaderView.swift */; };
 		04DBED292A24BCAC00DC92AD /* PersonalInformationPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED282A24BCAC00DC92AD /* PersonalInformationPageModel.swift */; };
@@ -323,18 +311,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04BF176B2A2B4606003E8F8F /* StoreKit.framework in Frameworks */,
-				04BF17692A2B45F4003E8F8F /* WebKit.framework in Frameworks */,
-				04BF17672A2B45EB003E8F8F /* libresolv.tbd in Frameworks */,
-				04BF17652A2B45DB003E8F8F /* UserNotifications.framework in Frameworks */,
-				04BF17512A2B006A003E8F8F /* Security.framework in Frameworks */,
-				04BF17632A2B45B2003E8F8F /* UIKit.framework in Frameworks */,
-				04BF17612A2B45AA003E8F8F /* Foundation.framework in Frameworks */,
-				04BF175F2A2B459F003E8F8F /* CoreGraphics.framework in Frameworks */,
-				04BF175D2A2B4597003E8F8F /* SystemConfiguration.framework in Frameworks */,
-				04BF175B2A2B4590003E8F8F /* CoreTelephony.framework in Frameworks */,
-				04BF17592A2B4585003E8F8F /* CoreFoundation.framework in Frameworks */,
-				04BF17572A2B457C003E8F8F /* CFNetwork.framework in Frameworks */,
 				04BF17552A2B423E003E8F8F /* Pods_yuxi.framework in Frameworks */,
 				04BF17532A2B007E003E8F8F /* libz.tbd in Frameworks */,
 				046E0AAD29FBF05800EA9B13 /* Accelerate.framework in Frameworks */,
@@ -1317,6 +1293,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9BAM6U8W65;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = yuxi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "玉溪人力";
@@ -1365,6 +1342,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9BAM6U8W65;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = yuxi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "玉溪人力";

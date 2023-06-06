@@ -54,9 +54,9 @@ class PermissionClosedTipView: UIView {
         
         
         // 文字描述
-        contentLab.textColor = YUXICOLOR(h: 0xCCCCCC, alpha: 1)
+        contentLab.textColor = YUXICOLOR(h: 0x333333, alpha: 1)
         contentLab.numberOfLines = 0
-        contentLab.text = "     定位权限被关闭，无法打卡，请在【设置】-【位置信息】中找到应用并开启定位权限。"
+        contentLab.text = "定位权限被关闭,无法打卡,请点击下方按钮更改权限。"
         contentLab.font = UIFont.init(name: "PingFangSC-Regular", size: CGFloat(16*YUXIIPONE_SCALE))
         self.addSubview(contentLab)
         contentLab.snp.makeConstraints { (make) in
@@ -67,16 +67,26 @@ class PermissionClosedTipView: UIView {
         }
         
         sureBtn.setBackgroundImage(UIImage.init(named: "Login_Button_bg"), for: .normal)
-        sureBtn.setTitle("我知道了", for: .normal)
+        sureBtn.setTitle("去开启", for: .normal)
         sureBtn.setTitleColor(YUXICOLOR(h: 0xFFFFFF, alpha: 1), for: .normal)
         sureBtn.titleLabel?.font = UIFont.fontWith(size: 16)
-        sureBtn.addTarget(self, action: #selector(closePopUpWindow), for: .touchUpInside)
+        sureBtn.addTarget(self, action: #selector(surePopUpWindow), for: .touchUpInside)
         bgView.addSubview(sureBtn)
         sureBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(WIDTH_SCALE(-20))
             make.width.equalTo(WIDTH_SCALE(142))
             make.height.equalTo(WIDTH_SCALE(32))
+        }
+        
+        let closeBtn = UIButton()
+        closeBtn.setImage(UIImage.init(named: "Close_Width"), for: .normal)
+        closeBtn.addTarget(self, action: #selector(closePopUpWindow), for: .touchUpInside)
+        self.addSubview(closeBtn)
+        closeBtn.snp.makeConstraints { make in
+            make.top.equalTo(bgView.snp.bottom).offset(WIDTH_SCALE(30))
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(WIDTH_SCALE(24))
         }
         
     }
@@ -87,9 +97,9 @@ class PermissionClosedTipView: UIView {
         UIApplication.shared.keyWindow?.addSubview(self)
     }
     
-    //关闭弹窗
-    @objc func closePopUpWindow() {
-        close()
+    //确定按钮
+    @objc func surePopUpWindow() {
+        closePopUpWindow()
         //打开设置界面
         if let url = URL(string: UIApplication.openSettingsURLString){
             if (UIApplication.shared.canOpenURL(url)){
@@ -98,7 +108,7 @@ class PermissionClosedTipView: UIView {
         }
     }
     
-    func close() {
+    @objc func closePopUpWindow() {
         if self.superview != nil {
             self.removeFromSuperview()
         }

@@ -16,7 +16,7 @@ class MessageDetailsViewController: YUXIBaseController {
     var model = MessageCenterListModel() {
         didSet {
             titleLab.text = model.title
-            contentLab.text = model.model
+            contentLab.text = model.title
             timeLab.text = model.update_time
         }
     }

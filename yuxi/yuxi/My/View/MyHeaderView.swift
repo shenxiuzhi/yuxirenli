@@ -32,8 +32,8 @@ class MyHeaderView: UIView {
             if let mobile = model?.mobile {
                 userPhoneLab.text = "手机号:\(mobile)"
             }
-            if let zw = model?.zw {
-                userGroupingLab.text = zw
+            if let dep = model?.dep {
+                userGroupingLab.text = dep
             }
         }
     }

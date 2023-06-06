@@ -20,7 +20,7 @@ class MessageCenterListCell: UITableViewCell {
     var model = MessageCenterListModel(){
         didSet{
             titleLab.text = model.title
-            contentLab.text = model.model
+//            contentLab.text = model.model
             timeLab.text = model.date
             if model.status == 0 {
                 redLab.isHidden = false
@@ -64,6 +64,7 @@ class MessageCenterListCell: UITableViewCell {
             make.width.lessThanOrEqualTo(WIDTH_SCALE(241))
         }
         contentLab.text = "消息内容消息内容消息内容消息内容"
+        contentLab.isHidden = true
         contentLab.textColor = YUXICOLOR(h: 0x666666, alpha: 1)
         contentLab.font = UIFont.fontWith(size: 10)
         bgView.addSubview(contentLab)

@@ -39,10 +39,10 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
         return tbView
     }()
      
-    // 0:可以打卡 , 1:不在范围内, 2:不在时间内
+    // 0:可以打卡 , 1:不在范围内, 2:不在时间内, 3:正在定位
     var isInScope:Int = -1 {
         didSet {
-            headView.tipLab.text = isInScope == 2 ? "不在考勤打卡时间范围内" : (isInScope == 0 ? "已进入考勤范围，请点击按钮拍照打卡" : "不在打卡范围，无法打卡")
+            headView.tipLab.text = isInScope == 3 ? "定位中" :(isInScope == 2 ? "不再有效打卡时段内" : (isInScope == 0 ? "已进入考勤范围，请点击按钮拍照打卡" : "不再有效打卡地点内"))
             headView.tipLab.textColor = YUXICOLOR(h: isInScope == 0 ? 0x3FA9F5 : 0x666666, alpha: 1)
             headView.tipImage.image = UIImage(named: isInScope == 0 ? "Attendance_Clock_In_Locate" : "Attendance_Out_Of_Range")
         }
@@ -52,6 +52,7 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     
     var model = AttendanceClockInModel(){
         didSet{
+            headView.model = model
             isTimeFrame = model.onoroff == 0 ? false : true
         }
     }
@@ -70,7 +71,9 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
             }else {
                 if differenceDistance < model.range {
                     isInScope = 0
-                }else {
+                }else if differenceDistance == -1.0{
+                    isInScope = 3
+                }else{
                     isInScope = model.is_address == 0 ? 0 : 1
                 }
             }
@@ -86,7 +89,7 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     var finalLon:Double = 0.0 {
         didSet {
             if finalLon == 0.0 {
-                differenceDistance = 0.0
+                differenceDistance = -1.0
             }else {
                 differenceDistance = getDistance(lat1: model.lat, lng1: model.lon, lat2: finalLat, lng2: finalLon)
             }
@@ -95,13 +98,6 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     }
     //是否在时间范围内
     var isTimeFrame = false
-    
-    //所需打卡次数
-    var time:Int = 0 {
-        didSet {
-            headView.time = time
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,7 +150,8 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     //下拉刷新
     func tableViewHeader(){
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-            self.tableView.mj_header?.endRefreshing()
+            self.getAttendanceIndex()
+            
         })
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -335,11 +332,13 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
     
     @objc func clockInAction() {
         if isInScope == 1 {
-            self.view.makeToast("您不在打卡位置范围内")
+            self.view.makeToast("不再有效打卡地点内")
             return
         }else if isInScope == 2 {
-            self.view.makeToast("您不在打卡时间范围内")
+            self.view.makeToast("不再有效打卡时段内")
             return
+        }else if isInScope == 3 {
+            self.view.makeToast("定位中")
         }else {
             if Tools.IsOpenLocation() {
                 
@@ -385,8 +384,10 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
                     weakself.model = AttendanceClockInModel.getUserdepData(json: datajs)
 //                    weakself.getTimeFrame(modelArr: model.timeci)
                     weakself.tableView.reloadData()
+                    weakself.tableView.mj_header?.endRefreshing()
                 }
             } err: {[weak self] error in
+                self?.tableView.mj_header?.endRefreshing()
                 Dprint("URL_Attendance_Index====== \(error)")
             }
         }
@@ -404,8 +405,8 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
                     Dprint("URL_Attendance_Listinfo:\(json)")
                     let code = json["code"].intValue
                     let content = json["data"]
-                    weakself.time = content["time"].intValue//需要打卡次数
-                    let qci = content["qci"].intValue//未打卡次数
+                    weakself.headView.time = content["time"].intValue//需要打卡次数
+                    weakself.headView.qci = content["qci"].intValue//未打卡次数
                     let list = content["ci"].arrayValue
                     weakself.attendanceModel.removeAll()
                     if code == 200 {

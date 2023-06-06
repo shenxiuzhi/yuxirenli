@@ -2,6 +2,9 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 #source 'https://github.com/CocoaPods/Specs.git'       #为SnapKit指定来源
 source 'https://github.com/volcengine/volcengine-specs.git'
 platform:ios, '13.0'
+use_frameworks!
+inhibit_all_warnings!
+
 # 让第三方库不产生armv7文件
 post_install do |installer|
     installer.pods_project.targets.each do |target|

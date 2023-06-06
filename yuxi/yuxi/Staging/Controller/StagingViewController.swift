@@ -235,8 +235,8 @@ class StagingViewController: YUXIBaseController {
         if let username = UserInfo.mr_findFirst()?.username {
             userNickLab.text = "Hi,"+username
         }
-        if let zw = UserInfo.mr_findFirst()?.zw {
-            userGroupingLab.text = zw
+        if let dep = UserInfo.mr_findFirst()?.dep {
+            userGroupingLab.text = dep
         }
     }
     

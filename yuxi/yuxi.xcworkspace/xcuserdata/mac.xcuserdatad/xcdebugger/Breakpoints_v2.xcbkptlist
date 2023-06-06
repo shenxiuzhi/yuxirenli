@@ -19,22 +19,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4BE29DBE-0DCE-4BC7-B4FA-4AA9B2FE681F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "yuxi/AttendanceClockIn/Controller/AttendanceClockInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "setOnceLocation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CD277B48-459B-4F86-9642-CBFF181392D6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -413,22 +397,6 @@
             startingLineNumber = "323"
             endingLineNumber = "323"
             landmarkName = "uploads(apiName:method:params:images:success:fail:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7FFAC034-E41A-4C50-BBC6-7BA97D74A697"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "yuxi/AttendanceClockIn/Controller/AttendanceClockInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "clockInAction()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

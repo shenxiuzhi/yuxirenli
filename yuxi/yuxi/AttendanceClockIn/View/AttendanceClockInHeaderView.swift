@@ -42,6 +42,7 @@ class AttendanceClockInHeaderView: UIView {
 //    var lineV3 = UIView()
     
     var time:Int = 0
+    var qci:Int = 0//未打卡次数
     
     var dataArr:[MyAttendanceModel] = []{
         didSet{
@@ -51,13 +52,13 @@ class AttendanceClockInHeaderView: UIView {
                 topTitleLab.isHidden = true
             }
             setLoopCreationUI(ArrModel: dataArr)
-            topCheckedInLab.text = "已打卡 \(dataArr.count)/\(time)"
+            topCheckedInLab.text = "已打卡 \(time-qci)/\(time)"
         }
     }
     
     var model = AttendanceClockInModel() {
         didSet {
-            
+            attendanceTimeLab.text = "上下班时间: \(model.starttime1)-\(model.endtime1) \(model.starttime2)-\(model.endtime2)"
         }
     }
     
@@ -146,7 +147,7 @@ class AttendanceClockInHeaderView: UIView {
             make.left.equalTo(attendanceImage.snp.right).offset(WIDTH_SCALE(3))
             make.centerY.equalTo(attendanceImage)
         }
-        attendanceTimeLab.text = "上下班时间: 08:00-08:00 08:00-08:00"
+        
         attendanceTimeLab.textColor = YUXICOLOR(h: 0x333333, alpha: 1)
         attendanceTimeLab.font = UIFont.fontWith(size: 9)
         attendanceBgView.addSubview(attendanceTimeLab)
@@ -241,6 +242,16 @@ class AttendanceClockInHeaderView: UIView {
         for (index,model) in ArrModel.enumerated() {
             let distance = CGFloat(index)*WIDTH_SCALE(68)
             
+            if let view = self.viewWithTag(1000+index) {
+                view.removeFromSuperview()
+            }
+            if let label = self.viewWithTag(2000+index) as? UILabel {
+                label.removeFromSuperview()
+            }
+            if let label = self.viewWithTag(3000+index) as? UILabel {
+                label.removeFromSuperview()
+            }
+            
             let lineV = UIView()
             lineV.backgroundColor = YUXICOLOR(h: 0xE4E4E4, alpha: 1)
             topBgView.addSubview(lineV)
@@ -276,7 +287,11 @@ class AttendanceClockInHeaderView: UIView {
                 stateLab.text = "已打卡"
                 stateLab.textColor = YUXICOLOR(h: 0x3FA9F5, alpha: 1)
             }else {
-                stateLab.text = "迟到/早退"
+                if model.type == 1 {
+                    stateLab.text = "迟到"
+                }else {
+                    stateLab.text = "早退"
+                }
                 stateLab.textColor = YUXICOLOR(h: 0xF5643F, alpha: 1)
             }
             stateLab.font = UIFont.fontWith(size: 9)
