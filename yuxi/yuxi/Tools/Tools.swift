@@ -236,49 +236,6 @@ class Tools: NSObject {
                 print("UPLOAD请求url----->" + fullStr)
                 print("UPLOAD请求params-----> \(params ?? [:])")
 
-//                switch encodingResult {
-//                case .success(let upload, let a, let b):
-//                    upload.responseJSON { response in
-//                        /// 上传成功
-//                        guard response.result.isSuccess else {
-//                            /// 网络链接错误或者服务器故障
-//                            if fail != nil {
-//                                fail!("网络链接错误或者服务器故障")
-//                            }
-//                            return
-//                        }
-//
-//                        let json = JSON(response.result.value as Any)
-//                        let msg = json["message"].stringValue
-//                        let code = json["code"].intValue
-//                        if code == 200 {
-//                            /// 成功
-//                            if success != nil {
-//                                success!(json["data"])
-//                            }
-//
-//                            print(json["data"])
-//
-//                        }else if code == 401 {
-//                            /// token 失效,重新登录
-//                            if fail != nil {
-//                                fail!("登录失败，请重新登录")
-////                                ELUser.share.userModel = nil
-////                                toLogin()
-//                            }
-//                        }else {
-//                            /// 失败
-//                            if fail != nil {
-////                                fail!(msg)
-//                            }
-//                        }
-//                    }
-//
-//                case .failure(let encodingError, let a, let b):
-//                    if fail != nil {
-//                        fail!(encodingError.localizedDescription)
-//                    }
-//                }
             }
         }
     
@@ -328,7 +285,17 @@ class Tools: NSObject {
         }
     }
     
-    
+    class func obtainAuroraRegistrationID() {
+        JPUSHService.registrationIDCompletionHandler { resCode, registrationID in
+            Tools.tellAuroraUserAlias(registrationID:registrationID!)
+            SRequestObject.shared.getLoginSaveclient(registrationID: registrationID!)
+        }
+    }
+    class func tellAuroraUserAlias(registrationID:String){
+        JPUSHService.setAlias(registrationID, completion: { (iResCode, iAlias, seq) in
+            print("alias,\(registrationID) . completion,\(iResCode),\(String(describing: iAlias)),\(seq)")
+        }, seq: 0)
+    }
     
     
 }

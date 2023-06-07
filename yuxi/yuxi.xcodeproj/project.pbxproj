@@ -121,6 +121,8 @@
 		04DBED2C2A26323800DC92AD /* WGS84TOGCJ02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED2B2A26323800DC92AD /* WGS84TOGCJ02.swift */; };
 		04DC92EA2A2DBE230056F764 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC92E82A2DBE230056F764 /* Date+Extension.swift */; };
 		04DC92EB2A2DBE230056F764 /* YLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC92E92A2DBE230056F764 /* YLDatePicker.swift */; };
+		04DF23402A2F773A00C98D60 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF233F2A2F773A00C98D60 /* NotificationService.swift */; };
+		04DF23442A2F773A00C98D60 /* NotificationServer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DF233D2A2F773A00C98D60 /* NotificationServer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +140,28 @@
 			remoteGlobalIDString = 046E096D29FB9FF600EA9B13;
 			remoteInfo = yuxi;
 		};
+		04DF23422A2F773A00C98D60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E096629FB9FF600EA9B13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04DF233C2A2F773A00C98D60;
+			remoteInfo = NotificationServer;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04DF23482A2F773A00C98D60 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				04DF23442A2F773A00C98D60 /* NotificationServer.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0414914D2A0635F30037B445 /* URLLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLLogin.swift; sourceTree = "<group>"; };
@@ -301,6 +324,9 @@
 		04DBED2B2A26323800DC92AD /* WGS84TOGCJ02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WGS84TOGCJ02.swift; sourceTree = "<group>"; };
 		04DC92E82A2DBE230056F764 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		04DC92E92A2DBE230056F764 /* YLDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLDatePicker.swift; sourceTree = "<group>"; };
+		04DF233D2A2F773A00C98D60 /* NotificationServer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServer.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DF233F2A2F773A00C98D60 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		04DF23412A2F773A00C98D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A36DF0E91906ED17D2FF6FF8 /* Pods-yuxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuxi.debug.xcconfig"; path = "Target Support Files/Pods-yuxi/Pods-yuxi.debug.xcconfig"; sourceTree = "<group>"; };
 		CD764A02EE1CB47E6CD9A79F /* Pods_yuxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yuxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC99050F0ED3E1B6D334F70A /* Pods-yuxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuxi.release.xcconfig"; path = "Target Support Files/Pods-yuxi/Pods-yuxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,6 +351,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		046E098B29FB9FF800EA9B13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DF233A2A2F773A00C98D60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				046E097029FB9FF600EA9B13 /* yuxi */,
+				04DF233E2A2F773A00C98D60 /* NotificationServer */,
 				046E096F29FB9FF600EA9B13 /* Products */,
 				BD40A6F9CC0E87431CDCC213 /* Pods */,
 				489F48BF329454EB1DA312E4 /* Frameworks */,
@@ -377,6 +411,7 @@
 				046E096E29FB9FF600EA9B13 /* yuxi.app */,
 				046E098429FB9FF800EA9B13 /* yuxiTests.xctest */,
 				046E098E29FB9FF800EA9B13 /* yuxiUITests.xctest */,
+				04DF233D2A2F773A00C98D60 /* NotificationServer.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -780,6 +815,15 @@
 			path = YLDatePicker;
 			sourceTree = "<group>";
 		};
+		04DF233E2A2F773A00C98D60 /* NotificationServer */ = {
+			isa = PBXGroup;
+			children = (
+				04DF233F2A2F773A00C98D60 /* NotificationService.swift */,
+				04DF23412A2F773A00C98D60 /* Info.plist */,
+			);
+			path = NotificationServer;
+			sourceTree = "<group>";
+		};
 		489F48BF329454EB1DA312E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -828,10 +872,12 @@
 				046E096C29FB9FF600EA9B13 /* Resources */,
 				218289052DE6C9BD7090592C /* [CP] Embed Pods Frameworks */,
 				DB79135E971BDBE5D4F103A6 /* [CP] Copy Pods Resources */,
+				04DF23482A2F773A00C98D60 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				04DF23432A2F773A00C98D60 /* PBXTargetDependency */,
 			);
 			name = yuxi;
 			productName = yuxi;
@@ -874,6 +920,23 @@
 			productReference = 046E098E29FB9FF800EA9B13 /* yuxiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		04DF233C2A2F773A00C98D60 /* NotificationServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DF23452A2F773A00C98D60 /* Build configuration list for PBXNativeTarget "NotificationServer" */;
+			buildPhases = (
+				04DF23392A2F773A00C98D60 /* Sources */,
+				04DF233A2A2F773A00C98D60 /* Frameworks */,
+				04DF233B2A2F773A00C98D60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationServer;
+			productName = NotificationServer;
+			productReference = 04DF233D2A2F773A00C98D60 /* NotificationServer.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -895,6 +958,9 @@
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 046E096D29FB9FF600EA9B13;
 					};
+					04DF233C2A2F773A00C98D60 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 046E096929FB9FF600EA9B13 /* Build configuration list for PBXProject "yuxi" */;
@@ -913,6 +979,7 @@
 				046E096D29FB9FF600EA9B13 /* yuxi */,
 				046E098329FB9FF800EA9B13 /* yuxiTests */,
 				046E098D29FB9FF800EA9B13 /* yuxiUITests */,
+				04DF233C2A2F773A00C98D60 /* NotificationServer */,
 			);
 		};
 /* End PBXProject section */
@@ -937,6 +1004,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		046E098C29FB9FF800EA9B13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DF233B2A2F773A00C98D60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1133,6 +1207,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04DF23392A2F773A00C98D60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DF23402A2F773A00C98D60 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1145,6 +1227,11 @@
 			isa = PBXTargetDependency;
 			target = 046E096D29FB9FF600EA9B13 /* yuxi */;
 			targetProxy = 046E098F29FB9FF800EA9B13 /* PBXContainerItemProxy */;
+		};
+		04DF23432A2F773A00C98D60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04DF233C2A2F773A00C98D60 /* NotificationServer */;
+			targetProxy = 04DF23422A2F773A00C98D60 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1286,8 +1373,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A36DF0E91906ED17D2FF6FF8 /* Pods-yuxi.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = yuxi/yuxi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1334,8 +1423,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC99050F0ED3E1B6D334F70A /* Pods-yuxi.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = yuxi/yuxi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1456,6 +1547,57 @@
 			};
 			name = Release;
 		};
+		04DF23462A2F773A00C98D60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9BAM6U8W65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServer;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.yuxirenli.NotificationServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04DF23472A2F773A00C98D60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9BAM6U8W65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServer;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.yuxirenli.NotificationServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1491,6 +1633,15 @@
 			buildConfigurations = (
 				046E099F29FB9FF800EA9B13 /* Debug */,
 				046E09A029FB9FF800EA9B13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04DF23452A2F773A00C98D60 /* Build configuration list for PBXNativeTarget "NotificationServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DF23462A2F773A00C98D60 /* Debug */,
+				04DF23472A2F773A00C98D60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

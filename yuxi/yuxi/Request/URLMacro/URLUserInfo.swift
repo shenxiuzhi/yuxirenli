@@ -53,3 +53,6 @@ let URL_User_Book = YUXI_User_Url + "user/book" + Suffix_Post
 //客服电话
 let URL_Login_Tel = YUXI_User_Url + "login/tel" + Suffix_Post
 
+//保存设备id
+let URL_Login_Saveclient = YUXI_User_Url + "login/saveclient" + Suffix_Post
+

@@ -36,6 +36,9 @@ class SRequestObject: NSObject {
                             NSManagedObjectContext .mr_default().mr_saveToPersistentStoreAndWait()
                         }
                     }
+                    JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
+                        print("退出注销极光别名儿 \(iResCode),\(String(describing: iAlias)),\(seq)")
+                    }, seq: 0)
                     let vc = YUXILoginAccountController()
                     UIViewController.getCurrentViewCtrl().navigationController?.pushViewController(vc, animated: true)
                 }else{
@@ -47,6 +50,24 @@ class SRequestObject: NSObject {
             Dprint("Login_loginerror====== \(error)")
             UIViewController.getCurrentViewCtrl().view.hideToastActivity()
         }
+    }
+    
+    
+    func getLoginSaveclient(registrationID:String) {
+        if let number = UserInfo.mr_findFirst()?.number {
+            let parms = ["code":number,"client":registrationID] as [String : Any]
+            let checkParms = [number,registrationID]
+            SURLRequest.sharedInstance.requestPostWithHeader(URL_Login_Saveclient, param: parms, checkSum: checkParms) { [weak self] (data) in
+                if let weakself = self {
+                    let json = JSON(data)
+                    Dprint("URL_Login_Saveclient:\(json)")
+                    
+                }
+            } err: {[weak self] error in
+                Dprint("URL_Login_Saveclient====== \(error)")
+            }
+        }
+        
     }
     
 }

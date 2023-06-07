@@ -345,6 +345,8 @@ class YUXILoginAccountController: YUXIBaseController, UITextFieldDelegate {
                 if code == 200 {
                     UserInfoModel.userData(content: content)
 //                    weakself.getURLUserInfoRequset(code: number)
+                    Tools.obtainAuroraRegistrationID()
+                    
                     let tabbarVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
                     UIApplication.shared.keyWindow?.rootViewController = tabbarVC
                     UIViewController.getCurrentViewCtrl().view.makeToast(msg,position: .center)
