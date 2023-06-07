@@ -50,9 +50,9 @@ class AttendanceClockInHeaderView: UIView {
                 topTitleLab.isHidden = false
             }else {
                 topTitleLab.isHidden = true
+                setLoopCreationUI(ArrModel: dataArr)
+                topCheckedInLab.text = "已打卡 \(time-qci)/\(time)"
             }
-            setLoopCreationUI(ArrModel: dataArr)
-            topCheckedInLab.text = "已打卡 \(time-qci)/\(time)"
         }
     }
     

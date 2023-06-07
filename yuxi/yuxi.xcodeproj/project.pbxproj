@@ -123,6 +123,7 @@
 		04DC92EB2A2DBE230056F764 /* YLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC92E92A2DBE230056F764 /* YLDatePicker.swift */; };
 		04DF23402A2F773A00C98D60 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF233F2A2F773A00C98D60 /* NotificationService.swift */; };
 		04DF23442A2F773A00C98D60 /* NotificationServer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DF233D2A2F773A00C98D60 /* NotificationServer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04DF234A2A30208600C98D60 /* loginPrivacyAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF23492A30208600C98D60 /* loginPrivacyAgreementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +328,7 @@
 		04DF233D2A2F773A00C98D60 /* NotificationServer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServer.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DF233F2A2F773A00C98D60 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		04DF23412A2F773A00C98D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DF23492A30208600C98D60 /* loginPrivacyAgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginPrivacyAgreementView.swift; sourceTree = "<group>"; };
 		A36DF0E91906ED17D2FF6FF8 /* Pods-yuxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuxi.debug.xcconfig"; path = "Target Support Files/Pods-yuxi/Pods-yuxi.debug.xcconfig"; sourceTree = "<group>"; };
 		CD764A02EE1CB47E6CD9A79F /* Pods_yuxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yuxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC99050F0ED3E1B6D334F70A /* Pods-yuxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuxi.release.xcconfig"; path = "Target Support Files/Pods-yuxi/Pods-yuxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 		046E0AC529FE041500EA9B13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04DF23492A30208600C98D60 /* loginPrivacyAgreementView.swift */,
 				041491582A0674560037B445 /* ForgotPasswordView.swift */,
 			);
 			path = View;
@@ -1135,6 +1138,7 @@
 				046E0B252A051EA600EA9B13 /* AddressBookController.swift in Sources */,
 				046E0AA629FBE37900EA9B13 /* StagingViewController.swift in Sources */,
 				041491702A0DF60B0037B445 /* MessageDetailsViewController.swift in Sources */,
+				04DF234A2A30208600C98D60 /* loginPrivacyAgreementView.swift in Sources */,
 				046E0AF929FE174100EA9B13 /* UIViewControllerEx.swift in Sources */,
 				046E0AB829FBF94C00EA9B13 /* SBaseTabBarViewController.swift in Sources */,
 				046E0AD329FE051300EA9B13 /* SURLRequest.swift in Sources */,

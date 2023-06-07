@@ -69,20 +69,20 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
             if !isTimeFrame {
                 isInScope = 2
             }else {
-                if differenceDistance < model.range {
+                if differenceDistance == -1.0{
+                   isInScope = 3
+                }else if differenceDistance < model.range {
                     isInScope = 0
-                }else if differenceDistance == -1.0{
-                    isInScope = 3
                 }else{
-                    isInScope = model.is_address == 0 ? 0 : 1
+                    isInScope = model.is_address
                 }
             }
         }
     }
     
-    let π: Double = 3.14159265358979324
-    let ee: Double = 0.00669342162296594323
-    let a: Double = 6378245.0
+//    let π: Double = 3.14159265358979324
+//    let ee: Double = 0.00669342162296594323
+//    let a: Double = 6378245.0
     
     var accuracy:String = ""
     var finalLat:Double = 0.0
@@ -163,7 +163,6 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
         
         return cell
     }
-    
     
     ///开始计时
     func startTimer() {
@@ -339,6 +338,7 @@ class AttendanceClockInViewController: YUXIBaseController, AMapLocationManagerDe
             return
         }else if isInScope == 3 {
             self.view.makeToast("定位中")
+            return
         }else {
             if Tools.IsOpenLocation() {
                 

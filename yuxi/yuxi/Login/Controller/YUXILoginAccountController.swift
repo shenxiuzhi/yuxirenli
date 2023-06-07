@@ -32,6 +32,14 @@ class YUXILoginAccountController: YUXIBaseController, UITextFieldDelegate {
     
     var telStr = ""
     
+    lazy var agreeMentView: loginPrivacyAgreementView = {
+        let agreeMentView: loginPrivacyAgreementView = loginPrivacyAgreementView.init(frame: .zero)
+        
+        return agreeMentView
+    }()
+    
+    var isAgree:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -223,7 +231,35 @@ class YUXILoginAccountController: YUXIBaseController, UITextFieldDelegate {
             make.bottom.equalToSuperview().offset(WIDTH_SCALE(-12)-YUXIIPHONEX_BH)
         }
         
+        self.view.addSubview(agreeMentView)
+        agreeMentView.backgroundColor = .clear
+        agreeMentView.isAgree = isAgree
+        agreeMentView.snp.makeConstraints { (bkmaker) in
+            bkmaker.bottom.equalTo(bottomCompanyLab.snp.top).offset(WIDTH_SCALE(-10))
+            bkmaker.centerX.equalToSuperview()
+            bkmaker.height.equalTo(WIDTH_SCALE(44))
+            bkmaker.left.right.equalTo(0)
+        }
         
+        // 回调
+        agreeMentView.block_isAgreed = { [weak self](isAgree) in
+            if let weakSelf = self {
+                weakSelf.isAgree = isAgree
+            }
+        }
+        agreeMentView.agreen_checkBlock = { [weak self](type) in
+            if let weakSelf = self {
+                if type == 1 {
+                    let vc: FishingGameWebVC = FishingGameWebVC()
+                    vc.loadStr = "http://yxrlzy.cn/mobile/index/ysxy"
+                    weakSelf.navigationController?.pushViewController(vc, animated: true)
+                }else {
+                    let vc: FishingGameWebVC = FishingGameWebVC()
+                    vc.loadStr = "http://yxrlzy.cn/mobile/index/fwxy"
+                    weakSelf.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
         
         
     }
@@ -321,6 +357,11 @@ class YUXILoginAccountController: YUXIBaseController, UITextFieldDelegate {
     //MARK: 接口请求
     //登录接口
     func loginRequest() {
+        if !isAgree {
+            UIViewController.getCurrentViewCtrl().view.makeToast("【玉溪人力：请您阅读并同意】《隐私协议》、《服务协议》",position: .center)
+            return
+        }
+        
         if jobIdNum == "" {
             UIViewController.getCurrentViewCtrl().view.makeToast("请输入工号",position: .center)
             return
