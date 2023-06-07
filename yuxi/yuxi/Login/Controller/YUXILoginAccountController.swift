@@ -358,7 +358,10 @@ class YUXILoginAccountController: YUXIBaseController, UITextFieldDelegate {
     //登录接口
     func loginRequest() {
         if !isAgree {
-            UIViewController.getCurrentViewCtrl().view.makeToast("【玉溪人力：请您阅读并同意】《隐私协议》、《服务协议》",position: .center)
+            var style = ToastManager.shared.style
+            style.titleAlignment = .center
+            style.messageAlignment = .center
+            UIViewController.getCurrentViewCtrl().view.makeToast("【玉溪人力：请您阅读并同意】《隐私协议》、《服务协议》",position: .center,style: style)
             return
         }
         

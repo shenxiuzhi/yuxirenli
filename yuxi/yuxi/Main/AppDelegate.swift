@@ -409,6 +409,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //系统获取Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         JPUSHService.registerDeviceToken(deviceToken)
+        JPUSHService.registrationIDCompletionHandler { (resCode, registrationID) in
+            print("resCode--", resCode, "    registrationID---", registrationID ?? "没有")
+        }
     }
     //获取token 失败
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) { //可选
