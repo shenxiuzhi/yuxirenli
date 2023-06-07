@@ -11,11 +11,10 @@ import MagicalRecord
 import AMapFoundationKit
 import AMapLocationKit
 
-//import JPush
-
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, JPUSHRegisterDelegate  {
+    
+    
 
     var window: UIWindow?
 //    var viewController: UINavigationController?
@@ -26,10 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Thread.sleep(forTimeInterval: 1)
         
+//        if UserInfo.mr_findFirst()?.number != nil {
+            //推送代码
+            let entity = JPUSHRegisterEntity()
+            entity.types = 1 << 0 | 1 << 1 | 1 << 2
+            JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+            //需要IDFA 功能，定向投放广告功能
+            //let advertisingId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            JPUSHService.setup(withOption: launchOptions, appKey: "52a8f17cc2dbbc44a5e6ac97", channel: "App Store", apsForProduction: true, advertisingIdentifier: nil)
+//        }
         loadThirdSDK()
         return true
     }
+    
     
     
 
@@ -53,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.getNotificationSettings { settings in
             
         }
+        
         
 //                                                                (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound))
         
@@ -111,6 +122,89 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        }
         UIApplication.shared.statusBarStyle = .lightContent
     }
+    
+    //MARK:--推送代理
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+        let userInfo = notification.request.content.userInfo
+        if notification.request.trigger is UNPushNotificationTrigger {
+            JPUSHService.handleRemoteNotification(userInfo)
+        }
+       // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+       completionHandler(Int(UNNotificationPresentationOptions.alert.rawValue))
+    }
+    
+//    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!) async -> Int {
+//
+//    }
+    
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+        let userInfo = response.notification.request.content.userInfo
+        if response.notification.request.trigger is UNPushNotificationTrigger {
+            JPUSHService.handleRemoteNotification(userInfo)
+        }
+        
+        
+        
+        // 系统要求执行这个方法
+        completionHandler()
+    }
+    
+    
+//    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!) async {
+//
+//    }
+//    UNPushNotificationTrigger
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
+        if ((notification.request.trigger?.isKind(of: UNPushNotificationTrigger.self)) != nil) {
+            //从通知界面直接进入应用
+        }else {
+            //从通知设置界面进入应用
+        }
+    }
+    
+    func jpushNotificationAuthorization(_ status: JPAuthorizationStatus, withInfo info: [AnyHashable : Any]!) {
+        
+    }
+    
+    //后台进前台
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        //销毁通知红点
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        JPUSHService.setBadge(0)
+        UIApplication.shared.cancelAllLocalNotifications()
+    }
+    //应用在前台或者后台时,收到本地通知/点击本地通知(10.0之前)
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        /*
+         1.应用程序在后台的时候,本地通知会给设备送达一个和远程通知一样的提醒
+         2.用程序正在运行中,则设备不会收到提醒(10.0之后可转为后台推送处理,10.0之前不处理)
+         */
+        if application.applicationState == .active{
+            Dprint("前台收到本地通知")
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kPriMsgNotification"), object: nil)
+        }else if application.applicationState == .background{
+            Dprint("后台收到本地通知")
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kPriMsgNotification"), object: nil)
+        }else if application.applicationState == .inactive{ //点击本地通知进入应用
+            if let userInfo:[AnyHashable : Any] = notification.userInfo {
+//                Tools.receivedNimNotificationResponse(userInfo: userInfo)
+            }
+        }
+    }
+    //应用在前台或者后台时,收到远程通知/点击远程通知(10.0之前,且假设另一个方法未被实现)
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+        jumpToViewctroller(data: userInfo)
+    }
+    //应用在前台或者后台或者非激活状态时，点击通知 (10.0之后)
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        jumpToViewctroller(data: response.notification.request.content.userInfo)
+        completionHandler()
+    }
+    
     
     func delayLoadSDK(){
         //注册并登陆网易云信
@@ -291,6 +385,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
      @param completionHandler 完成回调
      */
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        JPUSHService.handleRemoteNotification(userInfo)
+       
+        
         //重设App图标未读数123
 //        _ = AppDelegate.resetAppIconBageNumber()
         if UIApplication.shared.applicationState == .inactive {  //点击远程通知消息启动应用
@@ -308,7 +406,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        })
         completionHandler(UIBackgroundFetchResult.newData)
     }
-    
+    //系统获取Token
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        JPUSHService.registerDeviceToken(deviceToken)
+    }
+    //获取token 失败
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) { //可选
+        print("did Fail To Register For Remote Notifications With Error: \(error)")
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -382,6 +487,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 }
             }
         }
+        
+    }
+    
+    @objc func jumpToViewctroller(data:[AnyHashable : Any]) {
+        let json = JSON(data)
+        let type = json["type"].stringValue
+        let ID = json["id"].stringValue
+        if type == "messageList" {
+            let vc = MessageCenterViewController.init()
+            UIViewController.getCurrentViewCtrl().navigationController?.pushViewController(vc, animated: true)
+        }else if type == "salaryInfo" {
+            let vc = MySalaryDetailsListController.init()
+            vc.detailsID = ID
+            UIViewController.getCurrentViewCtrl().navigationController?.pushViewController(vc, animated: true)
+        }
+        UIApplication.shared.applicationIconBadgeNumber = 0
         
     }
     

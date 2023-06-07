@@ -28,7 +28,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "delayLoadSDK()"
+            landmarkName = "jpushNotificationCenter(_:openSettingsFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -44,7 +44,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "delayLoadSDK()"
+            landmarkName = "jpushNotificationCenter(_:openSettingsFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -60,7 +60,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
             endingLineNumber = "173"
-            landmarkName = "delayLoadSDK()"
+            landmarkName = "applicationDidEnterBackground(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -76,7 +76,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
-            landmarkName = "delayLoadSDK()"
+            landmarkName = "application(_:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

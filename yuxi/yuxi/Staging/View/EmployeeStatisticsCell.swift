@@ -35,7 +35,7 @@ class EmployeeStatisticsCell: UITableViewCell {
         }
     }
     
-    var colorArr:[UIColor] = [YUXICOLOR(h: 0x3FA9F5, alpha: 0.5),YUXICOLOR(h: 0x65BAF7, alpha: 1),YUXICOLOR(h: 0xEB882B, alpha: 1),YUXICOLOR(h: 0xDF4A68, alpha: 1),YUXICOLOR(h: 0xB8CC37, alpha: 1),YUXICOLOR(h: 0xF1CA24, alpha: 1),YUXICOLOR(h: 0xF5643F, alpha: 1),YUXICOLOR(h: 0xF7727D, alpha: 2),YUXICOLOR(h: 0xBB6F00, alpha: 1),YUXICOLOR(h: 0x8157FC, alpha: 1)]
+    var colorArr:[UIColor] = [YUXICOLOR(h: 0xEB2B2B, alpha: 0.5),YUXICOLOR(h: 0xEB662B, alpha: 1),YUXICOLOR(h: 0xEB982B, alpha: 1),YUXICOLOR(h: 0xEBEB2B, alpha: 1),YUXICOLOR(h: 0x9EEB2B, alpha: 1),YUXICOLOR(h: 0x2BEB4B, alpha: 1),YUXICOLOR(h: 0x2BEBAA, alpha: 1),YUXICOLOR(h: 0x2BB0EB, alpha: 2),YUXICOLOR(h: 0x2B65EB, alpha: 1),YUXICOLOR(h: 0x712BEB, alpha: 1),YUXICOLOR(h: 0xA52BEB, alpha: 1),YUXICOLOR(h: 0xC62BEB, alpha: 1),YUXICOLOR(h: 0xEB2BC5, alpha: 1),YUXICOLOR(h: 0xEB2B6C, alpha: 1)]
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

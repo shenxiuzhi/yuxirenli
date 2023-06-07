@@ -23,14 +23,28 @@ class MySalaryDetailsListController: YUXIBaseController, UITableViewDelegate, UI
         return tbView
     }()
     
-    var dataArr:[MySalaryDetailsYaerListModel] = []
+    var detailsID:String = ""
+    
+    var dataArr:[MySalaryDetailsYaerListModel] = [] {
+        didSet {
+            if detailsID != "" {
+                for item in dataArr {
+                    if detailsID == String(item.book_id) {
+                        let vc = SalaryDetailsController()
+                        vc.model = item
+                        UIViewController.getCurrentViewCtrl().navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            }
+        }
+    }
     
     var yearString = Tools.dateConvertString(date: Date(), dateFormat: "yyyy") {
         didSet {
             setSalaryGetList()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.YUXICreateNavbar(navTitle: "薪资明细", leftImage: "L_back", rightStr: "", ringhtAction: nil,rightIsImage: true,titleIsRight:true)
