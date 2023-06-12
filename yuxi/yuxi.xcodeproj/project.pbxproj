@@ -1391,6 +1391,7 @@
 				INFOPLIST_FILE = yuxi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "玉溪人力";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"玉溪人力\"想访问你的相机";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "\"玉溪人力\"将访问您的位置信息用于定位打卡";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "“玉溪人力”想访问您的位置";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "“玉溪人力”想访问您的位置";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "“玉溪人力”想访问您的位置";
@@ -1442,6 +1443,7 @@
 				INFOPLIST_FILE = yuxi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "玉溪人力";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"玉溪人力\"想访问你的相机";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "\"玉溪人力\"将访问您的位置信息用于定位打卡";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "“玉溪人力”想访问您的位置";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "“玉溪人力”想访问您的位置";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "“玉溪人力”想访问您的位置";
